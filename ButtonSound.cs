@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class ButtonSound : MonoBehaviour, IPointerEnterHandler
@@ -16,7 +16,7 @@ public class ButtonSound : MonoBehaviour, IPointerEnterHandler
 	{
 		try
 		{
-			audioSource = GetAudioSource();
+			audioSource = Utilities.GetComponent<AudioSource>(gameObject);
 		}
 		catch (System.Exception ex)
 		{
@@ -29,19 +29,4 @@ public class ButtonSound : MonoBehaviour, IPointerEnterHandler
     {
 		audioSource.PlayOneShot(sound);
     }
-
-	private AudioSource GetAudioSource()
-	{
-		AudioSource output;
-		output = GetComponent<AudioSource>();
-		if (output == null)
-		{
-			string message =
-				string.Format("Game object {0} misses required Audio Source component", gameObject.name);
-			throw new System.Exception(message);
-		}
-		else
-			return output;
-	}
-	
 }
