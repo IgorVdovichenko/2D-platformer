@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameQuitter: MonoBehaviour
 {
+    //Attach this method in Unity to a button
     public void QuitGame()
     {
 #if EDITOR
