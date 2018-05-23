@@ -12,7 +12,7 @@ class NewGameStarter : MonoBehaviour
 
     AudioSource audioSource;
 
-    public float DelayBeforeStart
+    private float DelayBeforeStart
     {
         get
         {
@@ -31,6 +31,7 @@ class NewGameStarter : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+//Attach this method in Unity to a button
     public void StartNewGame()
     {
         audioSource.PlayOneShot(StartGameSound);
