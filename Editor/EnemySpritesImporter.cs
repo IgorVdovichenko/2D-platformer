@@ -13,11 +13,8 @@ public class EnemySpritesImporter : AssetPostprocessor {
         if (isInDirectory)
         {
             TextureImporter textureImporter = (TextureImporter)assetImporter;
-
             textureImporter.spriteImportMode = SpriteImportMode.Multiple;
-
             textureImporter.filterMode = FilterMode.Point;
-
             textureImporter.textureCompression = TextureImporterCompression.Uncompressed;
         }
     }
