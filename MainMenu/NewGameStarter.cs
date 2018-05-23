@@ -6,7 +6,7 @@ class NewGameStarter : MonoBehaviour
 {
     [SerializeField] AudioClip StartGameSound;
     [SerializeField] float delayBeforeStart;
-	private readonly float minDelay = 1f;
+    private readonly float minDelay = 1f;
 
     [SerializeField] string stageToLoad = "Selection";
 
@@ -31,7 +31,7 @@ class NewGameStarter : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-//Attach this method in Unity to a button
+    //Attach this method in Unity to a button
     public void StartNewGame()
     {
         audioSource.PlayOneShot(StartGameSound);
