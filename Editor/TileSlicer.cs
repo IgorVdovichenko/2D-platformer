@@ -4,13 +4,13 @@ using UnityEditor;
 
 public class TileSlicer : AssetPostprocessor
 {
-	string directory = "/tiles/";
-	int spriteSize = 16;
-	int padding = 1;
-	int offset = 1;
+	private readonly string directory = "/tiles/";
+	private readonly int spriteSize = 16;
+	private readonly int padding = 1;
+	private readonly int offset = 1;
 
-	Vector2 tilePivot= new Vector2(0.5f, 0.5f);
-	int tileAlignment = 9;
+	private readonly Vector2 tilePivot= new Vector2(0.5f, 0.5f);
+	private readonly int tileAlignment = 9;
 
 	void OnPreprocessTexture()
     {
