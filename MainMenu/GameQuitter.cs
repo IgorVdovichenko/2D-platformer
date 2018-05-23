@@ -1,0 +1,17 @@
+﻿#define EDITOR
+
+using UnityEngine;
+
+public class GameQuitter: MonoBehaviour
+{
+    public void QuitGame()
+    {
+#if EDITOR
+        if (UnityEditor.EditorApplication.isPlaying == true)
+                   UnityEditor.EditorApplication.isPlaying = false;
+
+#else
+        else Application.Quit();
+#endif
+    }
+}
