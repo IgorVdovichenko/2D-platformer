@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +6,7 @@ class NewGameStarter : MonoBehaviour
 {
     [SerializeField] AudioClip StartGameSound;
     [SerializeField] float delayBeforeStart;
+	private readonly float minDelay = 1f;
 
     [SerializeField] string stageToLoad = "Selection";
 
@@ -15,12 +16,12 @@ class NewGameStarter : MonoBehaviour
     {
         get
         {
-            if (delayBeforeStart < 1) delayBeforeStart = 1;
+            if (delayBeforeStart < minDelay) delayBeforeStart = minDelay;
             return delayBeforeStart;
         }
         set
         {
-            if (value < 1) delayBeforeStart = 1;
+            if (value < minDelay) delayBeforeStart = minDelay;
             delayBeforeStart = value;
         }
     }
@@ -41,12 +42,13 @@ class NewGameStarter : MonoBehaviour
     {
         Button[] allButtons = FindObjectsOfType<Button>();
 
-        foreach (var item in allButtons)
+        foreach (var button in allButtons)
         {
-            item.interactable = false;
+            button.interactable = false;
 
-            ButtonSound buttonSound = item.gameObject.GetComponent<ButtonSound>();
-            if (buttonSound != null) buttonSound.active = false;
+            ButtonSound buttonSound = button.gameObject.GetComponent<ButtonSound>();
+			if (buttonSound != null)
+				buttonSound.enabled = false;
         }
     }
 
@@ -55,3 +57,4 @@ class NewGameStarter : MonoBehaviour
         SceneManager.LoadScene(stageToLoad);
     }
 }
+
