@@ -5,7 +5,6 @@ class StageButton: MonoBehaviour
 {
     Button button;
     [SerializeField] Image background;
-
     [SerializeField] Stage stage;
 
     private void Awake()
@@ -24,36 +23,31 @@ class StageButton: MonoBehaviour
 	{
 		try
 		{
-			button = GetButton();
+			button = Utilities.GetComponent<Button>(gameObject);
 		}
 		catch (System.Exception ex)
 		{
 			Debug.LogError(ex.Message);
-			if (UnityEditor.EditorApplication.isPlaying == true)
-			{
-				UnityEditor.EditorApplication.isPlaying = false;
-			}
+			Utilities.StopEditorApplication();
 		}
-	}
-
-	private Button GetButton()
-	{
-		Button output = GetComponent<Button>();
-		if (output == null)
-		{
-			string message =
-				string.Format("Game object {0} misses required Button component", gameObject.name);
-			throw new System.Exception(message);
-		}
-		else
-			return output;
 	}
 
 	void SetInactive()
 	{
-		background.color = Color.black;
+		SetBackground(Color.black);
 		button.interactable = false;
 		DisableSound();
+	}
+
+	void SetBackground(Color color)
+	{
+		if (background != null)
+			background.color = color;
+		else
+		{
+			string message = string.Format("Reference to background is not set on {0}", gameObject.name);
+			Debug.LogWarning(message);
+		}
 	}
 
 	private void DisableSound()
