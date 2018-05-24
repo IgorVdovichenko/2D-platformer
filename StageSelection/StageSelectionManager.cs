@@ -39,6 +39,7 @@ public class StageSelectionManager : MonoBehaviour
 		{
 			string message =
 				string.Format("Game object tagged {0} misses IControlAudio component", musicTag);
+			Debag.LogError(message);
 		}
 	}
 
