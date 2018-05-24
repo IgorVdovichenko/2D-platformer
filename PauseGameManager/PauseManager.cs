@@ -8,18 +8,18 @@ public class PauseManager : MonoBehaviour, IPauseManager
     [SerializeField] GameObject weaponMenu;
 
     MusicManager music;
-	const string musicObjectTag = "Music";
+    const string musicObjectTag = "Music";
     AudioSource audioSource;
     [SerializeField] AudioClip sound;
 
     PauseStateManager pause;
 
-	private const string mainSceneName = "Title";
+    private const string mainSceneName = "Title";
 
-	public void DisablePausing()
-	{
-		enabled = false;
-	}
+    public void DisablePausing()
+    {
+	enabled = false;
+    }
 
 	private void Awake()
     {
