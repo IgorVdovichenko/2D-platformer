@@ -29,7 +29,7 @@ public class StageClearedStatusSetter : IStageClearedStatusSetter
     private void ShowButtons()
     {
         Button("Select All", SelectAll);
-        Button("Disselect All", DisselectAll);
+        Button("Deselect All", DeselectAll);
         Button("Update", () => SceneManager.LoadScene(SceneManager.GetActiveScene().name));
     }
 
@@ -47,7 +47,7 @@ public class StageClearedStatusSetter : IStageClearedStatusSetter
         }
     }
 
-    void DisselectAll()
+    void DeselectAll()
     {
         foreach (var stage in stages)
         {
